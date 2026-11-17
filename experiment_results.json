@@ -1,0 +1,106 @@
+{
+  "model_name": "SoftVoting(RandomForest + GradientBoosting + ExtraTrees)",
+  "random_seed": 42,
+  "test_size": 0.2,
+  "n_train": 800,
+  "n_test": 200,
+  "metrics": {
+    "roc_auc": 0.834286,
+    "accuracy": 0.8,
+    "precision": 0.820513,
+    "recall": 0.914286,
+    "f1": 0.864865
+  },
+  "cv_on_train": {
+    "folds": 5,
+    "scoring": "roc_auc",
+    "candidates": [
+      {
+        "model": "SoftVoting(RF+GB+ET)",
+        "mean_auc": 0.782775,
+        "std_auc": 0.028551
+      },
+      {
+        "model": "RandomForest(500, mf=0.33)",
+        "mean_auc": 0.775949,
+        "std_auc": 0.03188
+      },
+      {
+        "model": "GradientBoosting(600, lr=0.03)",
+        "mean_auc": 0.774888,
+        "std_auc": 0.02156
+      },
+      {
+        "model": "ExtraTrees(500)",
+        "mean_auc": 0.76888,
+        "std_auc": 0.040845
+      }
+    ]
+  },
+  "experiments_on_test": [
+    {
+      "model": "Stacking(RF+GB+ET+LR)",
+      "roc_auc": 0.836905,
+      "accuracy": 0.79,
+      "precision": 0.818182,
+      "recall": 0.9,
+      "f1": 0.857143
+    },
+    {
+      "model": "SoftVoting(RF+GB+ET) — final",
+      "roc_auc": 0.834286,
+      "accuracy": 0.8,
+      "precision": 0.820513,
+      "recall": 0.914286,
+      "f1": 0.864865
+    },
+    {
+      "model": "RandomForest(500, mf=0.33)",
+      "roc_auc": 0.830357,
+      "accuracy": 0.82,
+      "precision": 0.829114,
+      "recall": 0.935714,
+      "f1": 0.879195
+    },
+    {
+      "model": "GradientBoosting(600, lr=0.03)",
+      "roc_auc": 0.825,
+      "accuracy": 0.8,
+      "precision": 0.833333,
+      "recall": 0.892857,
+      "f1": 0.862069
+    },
+    {
+      "model": "ExtraTrees(500)",
+      "roc_auc": 0.818571,
+      "accuracy": 0.795,
+      "precision": 0.815287,
+      "recall": 0.914286,
+      "f1": 0.861953
+    },
+    {
+      "model": "MLP(64-32)",
+      "roc_auc": 0.81381,
+      "accuracy": 0.76,
+      "precision": 0.791139,
+      "recall": 0.892857,
+      "f1": 0.838926
+    },
+    {
+      "model": "AdaBoost(300, lr=0.05)",
+      "roc_auc": 0.795595,
+      "accuracy": 0.71,
+      "precision": 0.715789,
+      "recall": 0.971429,
+      "f1": 0.824242
+    },
+    {
+      "model": "HistGradientBoosting(400)",
+      "roc_auc": 0.790952,
+      "accuracy": 0.77,
+      "precision": 0.813333,
+      "recall": 0.871429,
+      "f1": 0.841379
+    }
+  ]
+}
